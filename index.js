@@ -86,3 +86,13 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+// Title for the Project
+console.log("Financial Analysis");
+console.log("------------------");
+
+// The total number of months included in the dataset
+var totalMonths = finances.length;
+console.log("Total Months: " + totalMonths);
+
+// The net total amount of Profit/Losses over the entire period
