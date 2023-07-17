@@ -124,3 +124,29 @@ var averageChange = totalChanges / (finances.length - 1);
 
 console.log("The average of the **changes** in Profit/Losses over the entire period: ", averageChange.toFixed(2));
 // I used toFixed method to specify the number of decimal places I want to round it to
+
+
+
+// The greatest increase in Profit/Losses (date and amount) over the entire period:
+
+// 1. We have to create an Object. the date is null, because it doesn't have ha value currently. The amount is zero, there is no increase yet.
+
+var greatestIncrease = {
+  date: null,
+  amount: 0,
+};
+
+// 2. We have to run a loop to know all the changes
+for (i = 1; i < finances.length; i++) {
+  var currentMonthValue = finances[i][1];
+  var previousMonthValue = finances[i - 1][1];
+   var change = currentMonthValue - previousMonthValue;
+
+// 3. We have to make an if statement the new change is more than the previous change the greatestIncrease.amount will be updated with the corresponding month. and if the change is not bigger the greatestIncrease.amount will stay the same
+  if (change > greatestIncrease.amount) {
+  greatestIncrease.amount = change;
+  greatestIncrease.date = finances[i][0];
+  }
+}
+
+console.log("The greatest increase in Profit/Losses orccorred on " + greatestIncrease.date + " with an amount of " + greatestIncrease.amount);
