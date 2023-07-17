@@ -105,3 +105,22 @@ for (var i = 0; i < finances.length; i++) {
 console.log("Net total amount of Profit/Losses:", netTotal);
 
 // The average of the **changes** in Profit/Losses over the entire period.
+// you need the change of every months
+// you need to add those changes togehter
+// and you have to divide it by the total amount of months
+
+var totalChanges = 0;
+
+for (i = 1; i < finances.length; i++) {
+  currentMonthValue = finances[i][1];
+  previousMonthValue = finances[i - 1][1];
+
+  var change = currentMonthValue - previousMonthValue;
+  totalChanges += change;
+}
+
+// I need to divide the total number of changes, which is the number of months minus one.
+var averageChange = totalChanges / (finances.length - 1);
+
+console.log("The average of the **changes** in Profit/Losses over the entire period: ", averageChange.toFixed(2));
+// I used toFixed method to specify the number of decimal places I want to round it to
