@@ -140,13 +140,37 @@ var greatestIncrease = {
 for (i = 1; i < finances.length; i++) {
   var currentMonthValue = finances[i][1];
   var previousMonthValue = finances[i - 1][1];
-   var change = currentMonthValue - previousMonthValue;
+  var change = currentMonthValue - previousMonthValue;
 
-// 3. We have to make an if statement the new change is more than the previous change the greatestIncrease.amount will be updated with the corresponding month. and if the change is not bigger the greatestIncrease.amount will stay the same
+// 3. We have to make an if statement the new change is more than the previous change. the greatestIncrease.amount will be updated with the new change and with the corresponding month. If the change is not bigger, the greatestIncrease.amount will stay the same.
   if (change > greatestIncrease.amount) {
   greatestIncrease.amount = change;
   greatestIncrease.date = finances[i][0];
   }
 }
 
-console.log("The greatest increase in Profit/Losses orccorred on " + greatestIncrease.date + " with an amount of " + greatestIncrease.amount);
+console.log("The greatest increase in Profit/Losses occurred on " + greatestIncrease.date + " with an amount of " + greatestIncrease.amount);
+
+
+// The greatest decrease in Profit/Losses (date and amount) over the entire period.
+
+// 1. We have to create an Object. the date is null, because it doesn't have ha value currently. The amount is zero, there is no decrease yet.
+var greatestDecrease = {
+  date: null,
+  amount: 0,
+};
+
+// 2. We have to run a loop to know all the changes.
+for (i = 1; i < finances.length; i++) {
+  var currentMonthValue = finances[i][1];
+  var previousMonthValue = finances[i - 1][1];
+  var change = currentMonthValue - previousMonthValue;
+
+// 3. We have to make an if statement to see if the new change is less than the previous change. If it is true, the greatestDecrease.amount will be updated with the new change with the corresponding month. If the change is not less the greatestDecrease.amount will stay the same.
+  if (change < greatestDecrease.amount) {
+    greatestDecrease.amount = change;
+    greatestDecrease.date = finances[i][0];
+  }
+}
+
+console.log("The greatest decrease in Profit/Losses occurred on " + greatestDecrease.date + " with an amount of " + greatestDecrease.amount);
