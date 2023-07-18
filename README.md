@@ -1,5 +1,6 @@
 # Console-Finances
 creating code for analysing the financial records of a company.
+<img src = "financial_analysis_screenshot.png">
 
 ## What I have been given:
 I have been given a dataset composed of arrays with two fields: Date and Profit/Losses.
